@@ -19,6 +19,7 @@ let countdownInterval = null;
 const startButton = document.getElementById('start-button')
 const datetimePicker = document.getElementById('datetime-picker');
 
+startButton.disabled = true;
 
 
 const options = {
@@ -53,6 +54,8 @@ const updateTimer = () => {
   if (timeRemaining <= 0) {
     clearInterval(countdownInterval);
     resetTimerDisplay();
+    startButton.disabled = false; 
+    datetimePicker.disabled = false;
     return;
   }
   const timeComponents = convertMs(timeRemaining);
@@ -93,7 +96,10 @@ function addLeadingZero(value) {
  
   
 startButton.addEventListener('click', () => {
-   if (!userSelectedDate) return;
+  if (!userSelectedDate) return;
+  
+ startButton.disabled = true;
+  datetimePicker.disabled = true;
 
   if (countdownInterval) {
     clearInterval(countdownInterval);

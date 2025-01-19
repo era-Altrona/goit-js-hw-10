@@ -35,7 +35,3 @@ body {
 #start-button:disabled {
     background: #cfcfcf;
 }
-#datetime-picker {
-    width: 272px;
-        height: 40px;
-}
